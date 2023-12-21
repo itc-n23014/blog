@@ -12,10 +12,13 @@ const Hero = props => {
             <Image
               src={cube}
               alt=''
-              layout='responsive'
-              sizes='(min-width: 1152px) 576px, (min-width: 768px) 50vw, 100vw'
+              sizes='(min-width:1152px) 576px, (min-width:768px) 50vw, 100vw'
               priority
               placeholder='blur'
+              style={{
+                width: '100%',
+                height: 'auto'
+              }}
             />
           </figure>
         )}

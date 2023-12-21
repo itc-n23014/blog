@@ -14,16 +14,18 @@ const About = () => {
   return (
     <Container>
       <Hero title='About' subtitle='About development activities' />
-      <figure>
-        <Image
-          src={eyecatch}
-          alt=''
-          layout='responsive'
-          sizes='(min-width: 1152px) 1152px, 100vw'
-          priority
-          placeholder='blur'
-        />
-      </figure>
+      <Image
+        src={eyecatch}
+        alt=''
+        sizes='(min-width:1152px) 1152px, 100vw'
+        priority
+        placeholder='blur'
+        style={{
+          width: '100%',
+          height: 'auto',
+          transition: '0.2s'
+        }}
+      />
 
       <TwoColumn>
         <TwoColumnMain>
