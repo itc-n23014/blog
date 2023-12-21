@@ -3,9 +3,11 @@ import Hero from 'components/hero'
 
 const Home = () => {
   return (
-    <Container>
-      <Hero title='CUBE' subtitle='アウトプットしていくサイト' imageOn />
-    </Container>
+    <>
+      <Container>
+        <Hero title='CUBE' subtitle='アウトプットしていくサイト' imageOn />
+      </Container>
+    </>
   )
 }
 

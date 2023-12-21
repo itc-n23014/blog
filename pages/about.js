@@ -7,11 +7,25 @@ import {
   TwoColumnMain,
   TwoColumnSidebar
 } from 'components/two-column'
+import Image from 'next/image'
+import eyecatch from 'images/about.jpg'
 
 const About = () => {
   return (
     <Container>
       <Hero title='About' subtitle='About development activities' />
+      <Image
+        src={eyecatch}
+        alt=''
+        sizes='(min-width:1152px) 1152px, 100vw'
+        priority
+        placeholder='blur'
+        style={{
+          width: '100%',
+          height: 'auto',
+          transition: '0.2s'
+        }}
+      />
 
       <TwoColumn>
         <TwoColumnMain>
