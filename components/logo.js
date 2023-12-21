@@ -8,4 +8,5 @@ const Logo = ({ boxOn = false }) => {
     </Link>
   )
 }
+
 export default Logo
