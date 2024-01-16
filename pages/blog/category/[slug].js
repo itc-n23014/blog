@@ -9,7 +9,7 @@ import Meta from 'components/meta'
 const Category = ({ name, posts }) => {
   return (
     <Container>
-    <Meta pageTitle={name} pageDesc={`${name}に関する記事`}
+      <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
       <PostHeader title={name} subtitle='Blog Category' />
       <Posts posts={posts} />
     </Container>
