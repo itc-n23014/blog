@@ -1,6 +1,8 @@
-import styles from 'styles/UserDetails.module.css'
+// UserDetails.js
 
-const UserDetails = ({ user }) => {
+import styles from '../../styles/UserDetails.module.css'
+
+const UserDetails = ({ user, todos }) => {
   return (
     <div className={styles['user-details-container']}>
       <img
@@ -16,6 +18,17 @@ const UserDetails = ({ user }) => {
         Address: {user.address.street}, {user.address.suite},{' '}
         {user.address.city}, {user.address.zipcode}
       </p>
+      <br />
+      <br />
+
+      <h2 className={styles['user-details-heading']}>やることリスト</h2>
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id}>
+            {todo.completed ? '⭕' : '❌'} {todo.title}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
@@ -35,14 +48,18 @@ export async function getStaticPaths () {
 }
 
 export async function getStaticProps ({ params }) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${params.id}`
-  )
-  const user = await response.json()
+  const [userResponse, todosResponse] = await Promise.all([
+    fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`),
+    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${params.id}`)
+  ])
+
+  const user = await userResponse.json()
+  const todos = await todosResponse.json()
 
   return {
     props: {
-      user
+      user,
+      todos
     }
   }
 }
